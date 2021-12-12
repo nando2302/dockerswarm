@@ -1,0 +1,149 @@
+:root {
+    --orange: #FC6D00;
+    --blue: #0365FF;
+    --blue-dark: #001C38;
+}
+
+/* UTILS */
+
+
+* {
+    font-family: 'Poppins', sans-serif;  
+}
+
+body {
+    font-size: 14px !important;
+    color: rgb(97, 97, 97);
+    font-weight: 400;
+    font-family: 'Nunito', sans-serif;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+input,
+input::-webkit-input-placeholder {
+    font-size: 13px;
+    color: #9c9c9c !important;
+}
+
+textarea,
+textarea::-webkit-input-placeholder {
+    font-size: 13px;
+    color: #9c9c9c !important;
+}
+
+
+.text-orange {
+    color: var(--orange);
+}
+
+.bg-orange {
+    background-color: var(--orange);
+}
+
+.text-blue {
+    color: var(--blue);
+}
+
+.bg-blue {
+    background-color: var(--blue);
+}
+
+.card {
+    border: none;
+}
+
+.bg-orange-pudar {
+    background-color: #FED9BE;
+}
+
+.custom-dot-list-style {
+    margin-top: 100px !important;
+    /* background-color: red; */
+
+}
+
+.btn-orange {
+    color: #fff;
+    background-color: var(--orange) !important;
+    border-color: var(--orange) !important;
+}
+
+.btn-orange:hover {
+    opacity: 0.8;
+}
+
+.bg-blue-dark {
+    background-color: var(--blue-dark) !important;
+}
+
+.image-vison-mission {
+    width: 300px;
+    margin-top: -80px;
+    margin-bottom: 50px;
+}
+
+.row-vision {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.row-mission {
+    margin-top: 0px !important;
+}
+
+.section-our-value {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 40px;
+}
+
+.section-vision-mission {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.jumbotron-header {
+    margin-top: -65px;
+    min-height: 300px !important;
+    background-size: cover;
+    background-position: 0px 0;
+}
+
+.text-jumbotron-header {
+    margin-top: 120px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* DESKTOP VERSION */
+@media (min-width: 992px) { 
+    .image-vison-mission {
+        width: 500px;
+    }
+
+
+    .section-our-value {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 100px;
+    }
+
+    .jumbotron-header {
+        margin-top: -65px;
+        min-height: 800px !important;
+        background-position: 0 -150px;
+        background-size: cover;
+    }
+
+    .text-jumbotron-header {
+        margin-top: 300px;
+    }
+
+    .card-service {
+        border: 1px solid rgba(0, 0,0, 0.2);
+        border-radius: 10px;
+    }
+    
+ }

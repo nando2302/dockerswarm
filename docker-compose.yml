@@ -1,0 +1,30 @@
+version: '3.7'
+services:
+
+  app:
+    container_name: react-nginx
+    image: nando2302/tangkasnginx:1.0
+    ports:
+      - 80:81
+    restart: 
+      on-failure
+    networks:
+      - back-end
+    deploy:
+      mode: replicated
+      replicas: 4
+      restart_policy:
+        condition: on-failure
+  loadbalancer-nginx:
+    container_name: nginx-loadbalancer
+    build:
+      context: /Lb-nginx
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    restart: on-failure
+    networks:
+      - back-end
+    deploy:
+      placement:
+        constraints: [node.role== manager]

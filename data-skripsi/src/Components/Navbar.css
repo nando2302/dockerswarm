@@ -1,0 +1,44 @@
+.navbar {
+  /* background-color: transparent !important; */
+  box-shadow: none !important;
+}
+
+.navbar.colorChange {
+  background-color: #FFFFFF !important;
+  box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.1) !important;
+  transition: .3s;
+}
+
+.navbar.colorChange .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+}
+
+.name-brand {
+  color: #ffffff !important;
+}
+
+.navbar.colorChange .name-brand {
+  color: #4d4d4d !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+}
+
+.navbar-nav .nav-item {
+  margin-right: 50px;
+}
+
+.nav-link:hover {
+  color: #FC6D00 !important;
+}
+
+.navbar .nav-link:hover::after {
+  content: '';
+  display: block;
+  border-bottom: 3px solid #FC6D00;
+  /* width:50%; */
+  margin: auto;
+  padding-bottom: 5px;
+  margin-bottom: -8px;
+}
