@@ -1,11 +1,11 @@
-version: '3.7'
+version: '3.8'
 services:
 
   app:
-    container_name: react-nginx
+    # container_name: react-nginx
     image: nando2302/tangkasnginx:1.0
     ports:
-      - 80:81
+      - 80:80
     restart: 
       on-failure
     deploy:
