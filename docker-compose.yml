@@ -8,23 +8,8 @@ services:
       - 80:81
     restart: 
       on-failure
-    networks:
-      - back-end
     deploy:
       mode: replicated
       replicas: 4
       restart_policy:
         condition: on-failure
-  loadbalancer-nginx:
-    container_name: nginx-loadbalancer
-    build:
-      context: /Lb-nginx
-      dockerfile: Dockerfile
-    ports:
-      - 8080:8080
-    restart: on-failure
-    networks:
-      - back-end
-    deploy:
-      placement:
-        constraints: [node.role== manager]

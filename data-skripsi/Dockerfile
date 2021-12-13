@@ -9,7 +9,6 @@ COPY . /react-app/
 RUN npm run build
 
 FROM nginx:latest
-
 COPY --from=build /react-app/build /usr/share/nginx/html
 RUN rm /etc/nginx/conf.d/default.conf
 COPY --from=build /react-app/nginx.conf /etc/nginx/conf.d
