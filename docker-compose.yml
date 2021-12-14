@@ -6,8 +6,6 @@ services:
     image: nando2302/tangkasnginx:1.0
     ports:
       - 80:80
-    restart: 
-      on-failure
     deploy:
       mode: replicated
       replicas: 2
@@ -15,3 +13,4 @@ services:
         max_replicas_per_node: 1
       restart_policy:
         condition: on-failure
+        delay: 5s
