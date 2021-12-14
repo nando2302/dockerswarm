@@ -14,8 +14,8 @@ services:
       restart_policy:
         condition: on-failure
         delay: 5s
-        max_attempts: 2
-        window: 120s
+        max_attempts: 1
+        window: 60s
       update_config:
         parallelism: 2
         delay: 10s
