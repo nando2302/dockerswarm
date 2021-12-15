@@ -3,6 +3,11 @@ services:
 
   react-app:
     image: nando2302/tangkasnginx:1.0
+    ports:
+      - target: 80
+        published: 80
+        protocol: tcp
+        mode: host
     deploy:
       mode: replicated
       replicas: 2
@@ -16,7 +21,7 @@ services:
     ports:
     - target: 8080
       published: 8080
-      protocol: tcp
+      protocol: http
       mode: host
 
     deploy:
