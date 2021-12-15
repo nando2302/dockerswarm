@@ -16,7 +16,11 @@ services:
   loadbalancer:
     image: nando2302/lb-react:1.0
     ports:
-    - 8080:8080
+    - target: 8080
+      published: 8080
+      protocol: tcp
+      mode: host
+
     deploy:
       restart_policy:
         condition: on-failure
