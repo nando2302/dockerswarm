@@ -14,10 +14,7 @@ services:
         condition: on-failure
     
   loadbalancer:
-    # image: nando2302/lb-nginx:1.0
-    build:
-      context: /Lb-nginx
-      dockerfile: Dockerfile
+    image: nando2302/lb-nginx:1.0
     ports:
     - 8080:8080
     deploy:
