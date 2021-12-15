@@ -25,11 +25,11 @@ services:
       mode: host
 
     deploy:
-      restart_policy:
-        condition: on-failure
+  
       update_config:
         parallelism: 0
         delay: 10s
         failure_action: rollback
+        order: start-first
       placement:
         constraints: [node.role == manager]
