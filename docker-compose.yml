@@ -1,7 +1,7 @@
 version: '3.8'
 services:
 
-  app:
+  react-app:
     image: nando2302/tangkasnginx:1.0
     ports:
       - 80:80
@@ -10,34 +10,22 @@ services:
       replicas: 2
       placement:
         constraints: [node.role == worker]
-        # max_replicas_per_node: 1
       restart_policy:
         condition: on-failure
-        delay: 5s
-        # max_attempts: 10000
-        window: 120s
-      update_config:
-        parallelism: 1
-        delay: 10s
-        failure_action: rollback
-        max_failure_ratio: 0.3
-
     
   loadbalancer:
-    image: nando2302/lb-nginx:1.0
+    # image: nando2302/lb-nginx:1.0
+    build:
+      context: /Lb-nginx
+      dockerfile: Dockerfile
     ports:
     - 8080:8080
     deploy:
       restart_policy:
         condition: on-failure
-        delay: 5s
-        window: 120s
       update_config:
         parallelism: 0
         delay: 10s
         failure_action: rollback
-        monitor: 60s
       placement:
         constraints: [node.role == manager]
-
-    
