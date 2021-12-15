@@ -16,7 +16,7 @@ services:
   loadbalancer:
     image: nando2302/lb-nginx:1.0
     ports:
-    - 8080:8080
+    - 80:8080
     deploy:
       restart_policy:
         condition: on-failure
