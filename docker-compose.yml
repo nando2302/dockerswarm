@@ -3,8 +3,6 @@ services:
 
   react-app:
     image: nando2302/tangkasnginx:1.0
-    ports:
-      - 80:80
     deploy:
       mode: replicated
       replicas: 2
