@@ -24,7 +24,7 @@ services:
       protocol: http
       mode: host
     deploy:
-      mode: global
+      # mode: global
       update_config:
         parallelism: 0
         delay: 10s
