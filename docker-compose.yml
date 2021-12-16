@@ -7,7 +7,7 @@ services:
       - target: 80
         published: 80
         protocol: tcp
-        mode: host
+        # mode: host
     deploy:
       mode: replicated
       replicas: 2
@@ -23,7 +23,6 @@ services:
       published: 8080
       protocol: http
       mode: host
-
     deploy:
       mode: global
       update_config:
@@ -31,5 +30,5 @@ services:
         delay: 10s
         failure_action: rollback
         order: start-first
-      placement:
-        constraints: [node.role == manager]
+      # placement:
+      #   constraints: [node.role == manager]
