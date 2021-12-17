@@ -1,6 +1,6 @@
 version: '3.8'
 services:
-  web-server1:
+  web-server:
     image: nando2302/tangkasnginx:1.0
 
     ports:
@@ -14,14 +14,10 @@ services:
         condition: on-failure
   lb-nginx:
     image: nando2302/lb-nginxst:1.0
-    depends_on:
-      - webserver1
-      - webserver2
     ports:
       - target: 80
         published: 8080
         protocol: tcp
-
     deploy:
       mode: replicated
       replicas: 1
