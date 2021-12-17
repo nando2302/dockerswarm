@@ -13,7 +13,7 @@ services:
       restart_policy:
         condition: on-failure
   lb-nginx:
-    image: nando2302/lb-nginxst:1.0
+    image: nando2302/lb-react:2.0
     ports:
       - target: 80
         published: 8080
