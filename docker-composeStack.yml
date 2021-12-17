@@ -1,26 +1,14 @@
 version: '3.8'
-services:
-  web-server:
-    image: nando2302/tangkasnginx:1.0
 
+services:
+  app: 
+    image: nando2302/tangkasnginx:1.0
     ports:
       - target: 80
         published: 80
         protocol: tcp
+
     deploy:
       mode: replicated
       replicas: 2
-      restart_policy:
-        condition: on-failure
-  lb-nginx:
-    image: nando2302/lb-react:2.0
-    ports:
-      - target: 80
-        published: 8080
-        protocol: tcp
-    deploy:
-      mode: replicated
-      replicas: 1
-      restart_policy:
-        condition: on-failure
-
+      update_config:
