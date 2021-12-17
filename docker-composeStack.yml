@@ -24,7 +24,7 @@ services:
     image: nando2302/tangkasnginx:1.0
     ports:
       - target: 80
-        published: 80
+        published: 81
         protocol: tcp
     networks:
       backend:
@@ -47,7 +47,7 @@ services:
 
     ports:
       - target: 80
-        published: 80
+        published: 8080
         protocol: http
     
     deploy:
