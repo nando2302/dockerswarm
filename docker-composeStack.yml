@@ -4,37 +4,20 @@ services:
     image: nando2302/tangkasnginx:1.0
     networks:
       backend:
-        ipv4_address: 10.1.5.5
+       ipv4_address: { 10.1.5.8, 10.1.5.9}
     ports:
       - target: 80
-        published: 81
+        published: 80
         protocol: tcp
     deploy:
       mode: replicated
-      replicas: 1
-      # placement:
-      #   constraints: [node.role == worker]
+      replicas: 2
+
       restart_policy:
         condition: on-failure
 
-  web-server2:
-    image: nando2302/tangkasnginx:1.0
-    networks:
-      backend:
-        ipv4_address: 10.1.5.6
-    ports:
-      - target: 80
-        published: 82
-        protocol: tcp
-    deploy:
-      mode: replicated
-      replicas: 1
-      # placement:
-      #   constraints: [node.role == worker]
-      restart_policy:
-        condition: on-failure
   lb-nginx:
-    image: nando2302/lb-react:1.0
+    image: nando2302/lb-nginxst:1.0
     networks:
       backend:
         ipv4_address: 10.1.5.7
@@ -42,7 +25,7 @@ services:
       - target: 80
         published: 8080
         protocol: tcp
- 
+
     deploy:
       mode: replicated
       replicas: 1
@@ -51,9 +34,7 @@ services:
 
 
 networks:
-
   backend:
-    attachable: true
     ipam:
       driver: default
       config:
