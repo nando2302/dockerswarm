@@ -29,7 +29,7 @@ services:
         condition: on-failure
 
   lb-nginx:
-    image: nando2302/lb-nginxst:2.0
+    image: nando2302/lb-nginxst:1.0
     depends_on:
       - webserver1
       - webserver2
