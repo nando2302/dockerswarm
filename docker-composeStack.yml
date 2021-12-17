@@ -3,14 +3,15 @@ version: '3.8'
 services:
   app1: 
     image: nando2302/tangkasnginx:1.0
+    networks:
+    backend:
+      ip4v_address: 172.10.10.10
+
     ports:
       - target: 80
         published: 80
         protocol: tcp
-  networks:
-    backend:
-      ip4v_address: 172.10.10.10
-
+ 
     deploy:
       mode: replicated
       replicas: 1
@@ -39,7 +40,7 @@ services:
         condition: on-failure
 
   lb-nginx:
-    image: imageName
+    image: nando2302/lb-react:3.0
     networks:
     backend:
       ip4v_address: 172.10.10.9
