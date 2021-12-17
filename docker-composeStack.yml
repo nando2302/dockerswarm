@@ -43,7 +43,7 @@ services:
     image: nando2302/lb-react:3.0
     networks:
       backend:
-      ip4v_address: 172.10.10.9
+        ip4v_address: 172.10.10.9
     ports:
       - target: 80
         published: 80
