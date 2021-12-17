@@ -4,7 +4,7 @@ services:
     image: nando2302/tangkasnginx:1.0
     networks:
       backend:
-       ipv4_address: { 10.1.5.8, 10.1.5.9}
+       ipv4_address: {"10.1.5.8", "10.1.5.9"}
     ports:
       - target: 80
         published: 80
