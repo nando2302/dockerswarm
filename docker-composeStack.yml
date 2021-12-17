@@ -1,5 +1,4 @@
-verison: '3.8'
-
+version: '3.8'
 services:
   web-server1:
     image: nando2302/tangkasnginx:1.0
