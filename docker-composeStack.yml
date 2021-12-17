@@ -1,0 +1,61 @@
+verison: '3.8'
+
+services:
+  web-server1:
+    image: nando2302/tangkasnginx:1.0
+    networks:
+      backend:
+        ipv4_address: 10.1.5.5
+    ports:
+      - target: 80
+        published: 81
+        protocol: tcp
+    deploy:
+      mode: replicated
+      replicas: 1
+      # placement:
+      #   constraints: [node.role == worker]
+      restart_policy:
+        condition: on-failure
+
+  web-server2:
+    image: nando2302/tangkasnginx:1.0
+    networks:
+      backend:
+        ipv4_address: 10.1.5.6
+    ports:
+      - target: 80
+        published: 82
+        protocol: tcp
+    deploy:
+      mode: replicated
+      replicas: 1
+      # placement:
+      #   constraints: [node.role == worker]
+      restart_policy:
+        condition: on-failure
+  lb-nginx:
+    image: nando2302/lb-react:1.0
+    networks:
+      backend:
+        ipv4_address: 10.1.5.7
+    ports:
+      - target: 80
+        published: 8080
+        protocol: tcp
+ 
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+
+
+networks:
+
+  backend:
+    attachable: true
+    ipam:
+      driver: overlay
+      config:
+        - subnet: 10.1.5.0/24
