@@ -5,13 +5,13 @@ services:
     image: nando2302/tangkasnginx:1.0
     networks:
       backend:
-        ip4v_address: 172.10.10.10
+        ipv4_address: 172.10.10.10
 
     ports:
       - target: 80
         published: 80
         protocol: tcp
- 
+
     deploy:
       mode: replicated
       replicas: 1
@@ -28,7 +28,7 @@ services:
         protocol: tcp
     networks:
       backend:
-        ip4v_address: 172.10.10.11
+        ipv4_address: 172.10.10.11
 
     deploy:
       mode: replicated
@@ -43,7 +43,7 @@ services:
     image: nando2302/lb-react:3.0
     networks:
       backend:
-        ip4v_address: 172.10.10.9
+        ipv4_address: 172.10.10.9
     ports:
       - target: 80
         published: 80
