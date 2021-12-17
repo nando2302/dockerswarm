@@ -2,10 +2,7 @@ version: '3.8'
 services:
   web-server1:
     image: nando2302/tangkasnginx:1.0
-    networks:
-      backend:
-       ipv4_address: 10.1.5.8
-      
+
     ports:
       - target: 80
         published: 81
@@ -18,9 +15,7 @@ services:
         condition: on-failure
   web-server2:
     image: nando2302/tangkasnginx:1.0
-    networks:
-      backend:
-       ipv4_address: 10.1.5.9
+    
       
     ports:
       - target: 80
@@ -35,8 +30,9 @@ services:
 
   lb-nginx:
     image: nando2302/lb-nginxst:2.0
-    networks:
-      - backend
+    depends_on:
+      - webserver1
+      - webserver2
     ports:
       - target: 80
         published: 8080
@@ -48,10 +44,3 @@ services:
       restart_policy:
         condition: on-failure
 
-
-networks:
-  backend:
-    ipam:
-      driver: default
-      config:
-        - subnet: 10.1.5.0/24
