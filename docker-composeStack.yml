@@ -57,8 +57,9 @@ services:
       restart_policy:
         condition: on-failure
 
-networks:
-  backend:
-    ipam:
-      driver: overlay
-      subnet: "172.10.10.0/24"
+# networks:
+  
+  # backend:
+  #   ipam:
+  #     driver: overlay
+  #     subnet: "172.10.10.0/24"
