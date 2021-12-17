@@ -55,6 +55,6 @@ networks:
   backend:
     attachable: true
     ipam:
-      driver: overlay
+      driver: default
       config:
         - subnet: 10.1.5.0/24
