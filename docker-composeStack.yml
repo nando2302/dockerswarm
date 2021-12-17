@@ -1,15 +1,64 @@
 version: '3.8'
 
 services:
-  app: 
+  app1: 
     image: nando2302/tangkasnginx:1.0
     ports:
       - target: 80
         published: 80
         protocol: tcp
+  networks:
+    backend:
+      ip4v_address: 172.10.10.10
 
     deploy:
       mode: replicated
-      replicas: 2
+      replicas: 1
       update_config:
-      
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+  app2: 
+    image: nando2302/tangkasnginx:1.0
+    ports:
+      - target: 80
+        published: 80
+        protocol: tcp
+    networks:
+    backend:
+      ip4v_address: 172.10.10.11
+
+    deploy:
+      mode: replicated
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+
+  lb-nginx:
+    image: imageName
+    networks:
+    backend:
+      ip4v_address: 172.10.10.9
+    ports:
+      - target: 80
+        published: 80
+        protocol: http
+    
+    deploy:
+      mode: replicated
+      replicas: 1
+      update_config:
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+
+networks:
+  backend:
+    ipam:
+      driver: overlay
+    config:
+      - subnet: "172.10.10.0/24"
