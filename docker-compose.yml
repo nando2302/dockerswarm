@@ -14,7 +14,7 @@ services:
       placement:
         constraints: [node.role == worker]
       restart_policy:
-        condition: on-failure
+        condition: always
     
   loadbalancer:
     image: nando2302/lb-react:1.0
