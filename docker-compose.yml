@@ -14,8 +14,7 @@ services:
       placement:
         constraints: [node.role == worker]
       restart_policy:
-        delay: 10s
-        condition: always
+        condition: any
     
   loadbalancer:
     image: nando2302/lb-react:1.0
