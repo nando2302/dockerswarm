@@ -18,15 +18,15 @@ services:
         order: start-first
       restart_policy:
         condition: on-failure
-      placement:
-        constraints: [node.role == worker]
-    
+      # placement:
+      #   constraints: [node.role == worker]
+
   loadbalancer:
     image: nando2302/lb-react:1.0
     ports:
-    - target: 8080
-      published: 8080
-      protocol: http
+      - target: 8080
+        published: 8080
+        protocol: http
     deploy:
       # mode: global
       update_config:
@@ -36,4 +36,4 @@ services:
       restart_policy:
         condition: on-failure
       placement:
-        constraints: [node.role == manager]
+        constraints: [ node.role == manager ]
