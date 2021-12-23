@@ -11,14 +11,15 @@ services:
     deploy:
       mode: replicated
       replicas: 2
-      placement:
-        constraints: [node.role == worker]
-      restart_policy:
-        condition: on-failure
       update_config:
         parallelism: 1
         delay: 10s
         failure_action: rollback
+        order: start-first
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints: [node.role == worker]
     
   loadbalancer:
     image: nando2302/lb-react:1.0
@@ -26,12 +27,13 @@ services:
     - target: 8080
       published: 8080
       protocol: http
-     
     deploy:
       # mode: global
       update_config:
         parallelism: 0
         delay: 10s
         failure_action: rollback
+      restart_policy:
+        condition: on-failure
       placement:
         constraints: [node.role == manager]
