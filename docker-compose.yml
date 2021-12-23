@@ -14,7 +14,11 @@ services:
       placement:
         constraints: [node.role == worker]
       restart_policy:
-        condition: any
+        condition: on-failure
+      update_config:
+        parallelism: 1
+        delay: 10s
+        failure_action: rollback
     
   loadbalancer:
     image: nando2302/lb-react:1.0
@@ -29,5 +33,5 @@ services:
         parallelism: 0
         delay: 10s
         failure_action: rollback
-      # placement:
-      #   constraints: [node.role == manager]
+      placement:
+        constraints: [node.role == manager]
