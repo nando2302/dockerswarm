@@ -7,7 +7,7 @@ services:
       - target: 80
         published: 80
         protocol: tcp
-        # mode: host
+        mode: host
     deploy:
       mode: replicated
       replicas: 2
@@ -18,8 +18,9 @@ services:
         order: start-first
       restart_policy:
         condition: on-failure
-      # placement:
-      #   constraints: [node.role == worker]
+      placement:
+        constraints: [node.role == worker]
+        
 
   loadbalancer:
     image: nando2302/lb-react:1.0
