@@ -7,10 +7,10 @@ services:
       - target: 80
         published: 80
         protocol: tcp
-        mode: host
+        # mode: host
     deploy:
       mode: replicated
-      replicas: 2
+      replicas: 4
       update_config:
         parallelism: 1
         delay: 10s
