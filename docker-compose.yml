@@ -10,7 +10,7 @@ services:
         # mode: host
     deploy:
       mode: replicated
-      replicas: 4
+      replicas: 2
       update_config:
         parallelism: 1
         delay: 10s
